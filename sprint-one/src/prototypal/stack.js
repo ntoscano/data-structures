@@ -23,7 +23,8 @@ var stackMethods = {
 		if (this.length > 0) {
 			this.length--;
 		}
-
+		this.index--;
+		return this.stacked[this.index];
 	}
 };
 
