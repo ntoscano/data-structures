@@ -5,6 +5,7 @@ var Queue = function(){
 	queObj.length = 0;
 	queObj.index = 0;
 	queObj.deleted = 0;
+	queObj.qued = {};
 	extend(queObj, queueMethods);
 
 	return queObj;
@@ -24,7 +25,7 @@ var queueMethods = {
 		return this.length;
 	},
 	enqueue : function(value){
-		this.index = value;
+		this.qued[this.index] = value;
 		this.index++;
 		this.length++;
 	},
@@ -33,7 +34,8 @@ var queueMethods = {
 			this.length--;
 		}
 		this.deleted++;
-		return this[this.deleted-1];
+		
+		return this.qued[this.deleted - 1];
 	},
 
 };
