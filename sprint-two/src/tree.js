@@ -23,9 +23,7 @@ var extend = function(obj) {
 var treeMethods = {};
 
 treeMethods.addChild = function(value){
-	var node = {
-		value: value
-	}
+	var node = Tree(value);
 	this.children.push(node);
 };
 
