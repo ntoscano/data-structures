@@ -52,4 +52,6 @@ treeMethods.contains = function(target){
 
 /*
  * Complexity: What is the time complexity of the above functions?
+ addChild: constant because the amount of work is static regardless of node number
+ contains: linear because each call is to a for loop
  */
