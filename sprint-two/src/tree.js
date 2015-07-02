@@ -28,13 +28,25 @@ treeMethods.addChild = function(value){
 };
 
 treeMethods.contains = function(target){
+	var containsTarget = false;
+
+	if (this.value === target) {
+		return true;
+	}
+
 	for (var i = 0; i < this.children.length; i++) {
 		if (this.children[i].value === target) {
 			return true;
+		} 
+		if (this.children[i].children.length > 0) {
+			containsTarget = this.children[i].contains(target);
+			if (containsTarget) {
+				return true;
+			}
 		}
 	}
 
-	return false;
+	return containsTarget;
 };
 
 
