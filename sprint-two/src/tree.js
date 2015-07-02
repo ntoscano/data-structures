@@ -23,7 +23,10 @@ var extend = function(obj) {
 var treeMethods = {};
 
 treeMethods.addChild = function(value){
-
+	var node = {
+		value: value
+	}
+	this.children.push(node);
 };
 
 treeMethods.contains = function(target){
