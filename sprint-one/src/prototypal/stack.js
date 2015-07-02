@@ -5,6 +5,7 @@ var Stack = function() {
 
   stackObj.length = 0;
   stackObj.index = 0;
+  stackObj.stacked = {};
 
   return stackObj;
 };
@@ -14,8 +15,15 @@ var stackMethods = {
 		return this.length;
 	},
 	push: function(value) {
+		this.stacked[this.index] = value;
 		this.length++;
 		this.index++;
+	},
+	pop: function() {
+		if (this.length > 0) {
+			this.length--;
+		}
+
 	}
 };
 
