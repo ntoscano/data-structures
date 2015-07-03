@@ -7,7 +7,9 @@ var Set = function(){
 var setPrototype = {};
 
 setPrototype.add = function(item){
-	this._storage.push(item);
+	if(!this.contains(item)){
+		this._storage.push(item);
+	};
 };
 
 setPrototype.contains = function(item){
@@ -20,8 +22,13 @@ setPrototype.contains = function(item){
 };
 
 setPrototype.remove = function(item){
+	var index = this._storage.indexOf(item);
+	this._storage = this._storage.slice(0, index).concat(this._storage.slice(index+1));
 };
 
 /*
  * Complexity: What is the time complexity of the above functions?
+ linear: add (because calls contains), 
+ 		contains (for loop iteration), 
+ 		remove (because it calls indexOf)
  */
