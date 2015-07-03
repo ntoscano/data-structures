@@ -5,12 +5,15 @@ var HashTable = function(){
 
 HashTable.prototype.insert = function(k, v){
   var i = getIndexBelowMaxForKey(k, this._limit);
-  this._storage.set(i, v)
+  var value = [];
+  value.push(k, v);
+  this._storage.set(i, value);
 };
 
 HashTable.prototype.retrieve = function(k){
   var i = getIndexBelowMaxForKey(k, this._limit);
-  return this._storage.get(i);
+  var arr = this._storage.get(i);
+  return arr[1];
 };
 
 HashTable.prototype.remove = function(k){
